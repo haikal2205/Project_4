@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <jsp:include page="/views/layouts/head.html">
+            <jsp:param name="title" value="Data"></jsp:param>
+        </jsp:include>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.min.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <div class='container pt-4'>
+            <jsp:include page="/views/navbar.html"></jsp:include>
+            <div class="row">
+                <div class="col-4">
+                    <form action="CreateServlet" method="POST">
+                        <div class="form-group">
+                            <label>User Name</label>
+                            <input class="form-control" type="text" name="Username" />
+                        </div>
+                        <div class="form-group">
+                            <label>User Birthday</label>
+                            <input class="form-control" type="date" name="Birthday" />
+                        </div>
+                        <div class="form-group">
+                            <label>User Email</label>
+                            <input class="form-control" type="text"
+                                   name="Email" />
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-sm btn-primary">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <jsp:include page="/views/layouts/footer.jsp"></jsp:include>
+        </div>
+        <jsp:include page="/views/layouts/scripts.jsp"></jsp:include>        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+        <script type="text/javascript">
+            $('#datepicker').datepicker({
+                weekStart: 1,
+                autoclose: true,
+                todayHighlight: true,
+                format: 'yyyy-mm-dd',
+            });
+            $('#datepicker').datepicker("setDate", new Date());
+        </script>
+    </body>
+</html>
